@@ -1,14 +1,15 @@
 import {ImageComponent} from './components/image.js';
-import {PageComponent} from './components/page.js';
+import {PageComponent} from './components/page/page.js';
 
 class App {
   private readonly page: PageComponent;
-  private readonly img: ImageComponent;
+
   constructor(appRoot: HTMLElement) {
     this.page = new PageComponent(); //인스턴스를 만들고
-    this.page.attachTo(appRoot); //이 인스턴스 안의 메소드로 element추가
-    this.img = new ImageComponent();
-    this.img.attatchTo(appRoot);
+    this.page.attachTo(appRoot); //이 인스턴스 안의 attatchTo메소드로 element추가
+
+    const image = new ImageComponent('Image Title', 'https://picsum.photos/600/300');
+    image.attachTo(appRoot, 'beforeend');
   }
 }
 

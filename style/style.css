@@ -1,5 +1,5 @@
 :root {
-  --bg-main-color: #ffffff8e;
+  --bg-main-color: #292e32;
   --bg-accent-color: #2d2d2d;
   --accent-color: #fc6c67;
   --text-accent-color: #ff463e;
@@ -33,12 +33,7 @@ label {
 
 body {
   /* background: url('../assets/background.png') center/cover no-repeat; */
-  background: rgb(250, 191, 0);
-  background: linear-gradient(
-    90deg,
-    rgba(250, 191, 0, 0.8768844221105527) 0%,
-    rgba(252, 168, 103, 0.7462311557788945) 100%
-  );
+  background-color: var(--black);
   font-family: Roboto, Oxygen, sans-serif;
   display: flex;
   justify-content: center;
@@ -57,14 +52,20 @@ body {
 }
 
 .banner {
-  background: var(--bg-main-color);
-  border-bottom: 1px solid #ffffff;
   text-align: center;
 }
 
+.control-panel {
+  padding: 28px 0;
+  background: var(--bg-main-color);
+}
+
 .banner__title {
+  font-family: 'Palette Mosaic', cursive;
   margin: 20px;
-  color: var(--accent-color);
+  font-weight: 900;
+  letter-spacing: 2px;
+  color: #ffffff;
 }
 
 .control-panel {
@@ -74,28 +75,42 @@ body {
 }
 
 .create-button {
-  margin: 0.1em 0.4em; /* 중간 정렬 */
+  margin: 0.1em 0.8em; /* 중간 정렬 */
   text-align: center; /* 중간 정렬 */
   user-select: none; /* text위에 드래깅 할 수 없게 만듦 */
-  padding: 1em 3em;
+  padding: 1em 2em;
   text-transform: uppercase; /* 대문자로 변경 */
   font-weight: 600;
   font-size: 0.8rem;
-  color: white;
-  background-color: var(--accent-color);
-  border-color: var(--accent-color);
+  color: #ffffff;
   border-radius: 45px;
   border-style: none;
+  transition: all 0.2s ease-out;
+}
+.create-button:hover {
+  transform: scale(1.05);
+  /* transform: translateY(-4px); */
+  border-radius: 0;
 }
 
-.create-button:hover {
-  background-color: var(--text-accent-color);
-  color: #000000;
+.first {
+  background-color: #f3a844;
+}
+.second {
+  background-color: #54b6db;
+}
+.third {
+  background-color: #494e57;
+  border: 1px solid #ffffff80;
+}
+.fourth {
+  background-color: var(--accent-color);
 }
 
 .document {
   height: 100%;
   overflow-y: auto;
+  color: #ffffff;
   /* Firefox */
   scrollbar-width: 6px;
   scrollbar-color: var(--bg-accent-color);
@@ -115,7 +130,7 @@ body {
 
 .footer {
   background: var(--bg-main-color);
-  border-top: 1px solid var(--border-color);
   text-align: center;
-  font-size: medium;
+  font-size: 0.8rem;
+  color: var(--smokywhite);
 }
