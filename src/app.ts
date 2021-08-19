@@ -2,26 +2,26 @@ import {VideoComponent} from './components/page/item/video.js';
 import {TodoComponent} from './components/page/item/todo.js';
 import {NoteComponent} from './components/page/item/note.js';
 import {ImageComponent} from './components/page/item/image.js';
-import {PageComponent} from './components/page/page.js';
+import {Composable, PageComponent} from './components/page/page.js';
+import {Component} from './components/component.js';
 
 class App {
-  private readonly page: PageComponent;
-
+  private readonly page: Component & Composable; //page는 Component중에 하나이고, Composable이라는 interface를 구현한 것이다.
   constructor(appRoot: HTMLElement) {
     this.page = new PageComponent(); //인스턴스를 만들고
     this.page.attachTo(appRoot); //이 인스턴스 안의 attatchTo메소드로 element추가
 
     const image = new ImageComponent('Image Title', 'https://picsum.photos/600/300');
-    image.attachTo(appRoot, 'beforeend');
+    this.page.addChild(image);
+
+    const video = new VideoComponent('Video Title', 'https://youtu.be/K3-jG52XwuQ');
+    this.page.addChild(video);
 
     const note = new NoteComponent('Note Title', 'Note Body');
-    note.attachTo(appRoot, 'beforeend');
+    this.page.addChild(note);
 
     const todo = new TodoComponent('Todo Title', 'Todo Item');
-    todo.attachTo(appRoot, 'beforeend');
-
-    const video = new VideoComponent('Vodei Title', 'https://www.youtube.com/embed/T7h8O7dpJIg');
-    video.attachTo(appRoot, 'beforeend');
+    this.page.addChild(todo);
   }
 }
 
