@@ -3,11 +3,11 @@ import {BaseComponent} from '../../component.js';
 export class ImageComponent extends BaseComponent<HTMLElement> {
   constructor(title: string, url: string) {
     super(`<section class="image">
-                <div class="image__holer"><img class="image__thumnail"></div>
-                <h2 class="image__title"></h2>
+                <div class="image__holer"><img class="image__thumbnail"></div>
+                <h2 class="page-item__title image__title"></h2>
                 </section>`);
 
-    const imageElement = this.element.querySelector('.image__thumnail')! as HTMLImageElement;
+    const imageElement = this.element.querySelector('.image__thumbnail')! as HTMLImageElement;
     imageElement.src = url;
     imageElement.alt = title;
     //innerHTML 안에 바로 ${title}, ${url}로 작성해주지 않은 이유는, 만약 사용자가 title, url을 html코드형식으로
